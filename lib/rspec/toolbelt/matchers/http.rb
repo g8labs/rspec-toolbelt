@@ -21,6 +21,12 @@ module RSpec
           end
         end
 
+        RSpec::Matchers.define :be_ok do
+          match do |response|
+            response.status == 200
+          end
+        end
+
         RSpec::Matchers.define :be_unprocessable_entity do
           match do |response|
             response.status == 422
